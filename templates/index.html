@@ -24,26 +24,31 @@
 
         <section class="messages" id="messages">
             <div class="message to">
-                <div class="profile">
-                    <img src="https://lh3.googleusercontent.com/a/ACg8ocK0_IEiBum5fdzAh439e_1u_1-aRonEW_MwD5ay17MbeZ9rlw=s64" alt="">
-                </div>
-                <div class="content">Hello!</div>
+                <!-- This is where user messages will appear -->
             </div>
             <div class="message from">
                 <div class="profile">
                     <img src="https://lh3.googleusercontent.com/a/ACg8ocK0_IEiBum5fdzAh439e_1u_1-aRonEW_MwD5ay17MbeZ9rlw=s64" alt="">
                 </div>
-                <div class="content">Hi!!!</div>
+                <div class="content">
+                    <ul>
+                        <ul><button class="option-button">Recommend degrees or skills for a job position</button></ul>
+                        <ul><button class="option-button">Jobs I can apply for with my qualifications</button></ul>
+                        <ul><button class="option-button">Find a job quickly after graduation</button></ul>
+                        <ul><button class="option-button">Does my school affect my employment rate?</button></ul>
+                        <ul><button class="option-button">Industries in high demand</button></ul>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <footer>
-            <input type="text" id="inputMessage">
+            <input type="text" id="inputMessage" placeholder="Type your message...">
             <button id="sendMessageButton">&#9992;</button>
         </footer>
     </main>
 
-    <script src="app.js"></script> <!-- Link to JavaScript file -->
+    <script src="/static/js/app.js"></script> <!-- Link to JavaScript file -->
 </body>
 
 </html>
