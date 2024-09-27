@@ -96,8 +96,10 @@ main {
             .content {
                 background-color: #949DE4;
             }
-        }
 
+            
+        }
+        
         .message.from {
             .profile {
                 background-color: #7B9EE8;
@@ -105,6 +107,11 @@ main {
 
             .content {
                 background-color: #7B9EE8;
+            }
+            .option-button {
+                background-color: #eee;
+                border: 16px;
+                cursor: pointer;
             }
 
         }
