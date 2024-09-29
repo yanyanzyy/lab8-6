@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 # Title of the app
 st.title("Interactive Sub-Skill Data Visualizer")
 
-file_path = r"D:\SCHOOL\UNI\Year 1\Trimester 1\INF1102 - Programming Fundamentals\Project\Final - Final.csv"
+# Corrected file path
+file_path = r"D:\SCHOOL\UNI\Year 1\Trimester 1\INF1102 - Programming Fundamentals\Project\Data sets\Final - Final.csv"
 
 if file_path is not None:
     # Read the CSV file
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path, on_bad_lines='skip')
 
     # Show the data types of each column
     st.write("Data types:")
