@@ -3,21 +3,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Title of the app
-st.title("Interactive Sub-Skill Data Visualizer")
+st.title("Companies that are hiring the IT roles")
 
-# Corrected file path
-file_path = r"D:\SCHOOL\UNI\Year 1\Trimester 1\INF1102 - Programming Fundamentals\Project\Data sets\Final - Final.csv"
+file_path = r"D:\SCHOOL\UNI\Year 1\Trimester 1\INF1102 - Programming Fundamentals\Project\Data sets\Final.csv"
 
 if file_path is not None:
-    # Read the CSV file
-    df = pd.read_csv(file_path, on_bad_lines='skip')
+    # Read the CSV file with the correct encoding
+    df = pd.read_csv(file_path, encoding='ISO-8859-1', on_bad_lines='skip')
 
-    # Show the data types of each column
-    st.write("Data types:")
-    st.write(df.dtypes)
-
-    # Choose a column for visualization
-    column_to_plot = st.selectbox("Select a data type to visualize", df.columns)
+    # Directly use a specific column for visualization
+    column_to_plot = "Company/Candidate Name"  # Replace this with your specific column name
 
     if df[column_to_plot].dtype == 'object':
         # Count occurrences of each category
@@ -25,31 +20,18 @@ if file_path is not None:
 
         # Check if category_counts is not empty
         if not category_counts.empty:
-            # Set the range for the slider
-            min_count, max_count = category_counts.min(), category_counts.max()
-
-            # Filter based on user input using slider
-            min_slider, max_slider = st.slider(
-                'Select the range of counts for filtering companies',
-                min_value=min_count, max_value=max_count,
-                value=(min_count, max_count)
-            )
-
-            # Filter categories based on the slider
-            filtered_counts = category_counts[(category_counts >= min_slider) & (category_counts <= max_slider)]
-
             # Multi-select to choose specific data
             selected_skills = st.multiselect(
-                'Select specific data company to visualize',
-                options=filtered_counts.index.tolist(),  # Provide the list of options
-                default=filtered_counts.index.tolist()   # Default to show all filtered
+                'Select companies to visualize',
+                options=category_counts.index.tolist(),  # Provide the list of options
+                default=[]  # Default to show none
             )
 
             # Create a bar chart for selected companies
             if st.button("Generate Bar Chart") and selected_skills:
                 plt.figure(figsize=(10, 5))
-                filtered_counts[selected_skills].plot(kind='bar')
-                plt.title(f'Number of IT roles hired in {column_to_plot}')
-                plt.xlabel(column_to_plot)
-                plt.ylabel('Count')
+                category_counts[selected_skills].plot(kind='bar')
+                plt.title('Companies that are hiring the IT roles')
+                plt.xlabel('Companies')
+                plt.ylabel('No. of roles')
                 st.pyplot(plt)
