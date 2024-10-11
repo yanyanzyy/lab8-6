@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 st.title("Distribution of Certificates in the Data File")
 
 # Fixed file path
-file_path = r"D:\SCHOOL\UNI\Year 1\Trimester 1\INF1102 - Programming Fundamentals\Project\Data sets\merged.csv"
+file_path = r"D:\SCHOOL\UNI\Year 1\Trimester 1\INF1102 - Programming Fundamentals\Project\Data sets\Cerificate.csv"
 
 # Check if the file exists
 import os
