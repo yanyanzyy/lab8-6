@@ -21,6 +21,12 @@ else:
         # Count occurrences of each certificate
         certificate_counts = df['certification_text'].value_counts().sort_index()
 
+        # Display the top 3 most common certificates
+        top3_certificates = certificate_counts.nlargest(3)
+        st.write("**Top 3 Most Common Certificates:**")
+        for certificate, count in top3_certificates.items():
+            st.write(f"{certificate}: {count} people")
+
         # Multi-select to filter certificates
         selected_certificates = st.multiselect(
             'Select certificates to visualize',
