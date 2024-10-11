@@ -33,7 +33,7 @@ else:
 
         # Generate a plot for distribution
         plt.figure(figsize=(10, 5))
-        plt.step(filtered_counts.index, filtered_counts.values, where='mid', color='b', linestyle='-', linewidth=2, marker='o')
+        plt.plot(filtered_counts.index, filtered_counts.values, color='b', linestyle='-', linewidth=2, marker='o')
         plt.title('Distribution of Certificates')
         plt.xlabel('Certificate')
         plt.ylabel('No. of people with the certificate')
